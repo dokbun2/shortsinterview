@@ -6,7 +6,7 @@ import { Gallery } from './components/Gallery/Gallery';
 
 function App() {
   return (
-    <Router basename="/shortsinterview">
+    <Router>
       <div className="min-h-screen flex flex-col bg-dark-bg">
         <Header />
         
