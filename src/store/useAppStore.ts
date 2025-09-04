@@ -22,6 +22,7 @@ interface AppState {
   
   // Utility Functions
   reset: () => void;
+  resetStore: () => void;
 }
 
 const initialState = {
@@ -56,6 +57,12 @@ export const useAppStore = create<AppState>()(
       clearMediaUrls: () => set({ mediaUrls: {} }),
       
       reset: () => set(initialState),
+      
+      resetStore: () => {
+        set(initialState);
+        // Clear localStorage as well
+        localStorage.removeItem('aifi-shorts-storage');
+      },
     }),
     {
       name: 'aifi-shorts-storage',

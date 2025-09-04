@@ -1,15 +1,16 @@
 import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAppStore } from '../../store/useAppStore';
 import { handleFileUpload, downloadJSON } from '../../utils/fileHandlers';
-import { Upload, Download, Home, Images, FileText } from 'lucide-react';
+import { Upload, Download, Images, FileText, RefreshCw } from 'lucide-react';
 // import { Button } from '../ui/Button'; // Button 컴포넌트 사용 안 함
 import { ScriptModal } from '../ScriptModal';
 
 export const Header: React.FC = () => {
-  const { scriptData, setScriptData } = useAppStore();
+  const { scriptData, setScriptData, resetStore } = useAppStore();
   const [isScriptModalOpen, setIsScriptModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   const onDrop = useCallback(async (acceptedFiles: File[]) => {
     if (acceptedFiles.length > 0) {
@@ -40,22 +41,28 @@ export const Header: React.FC = () => {
     }
   };
 
+  const handleRefresh = () => {
+    if (window.confirm('모든 데이터가 초기화됩니다. 계속하시겠습니까?')) {
+      resetStore();
+      navigate('/');
+    }
+  };
+
   return (
     <>
       <header className="bg-black border-b border-dark-border shadow-dark-md">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-8">
-              <h1 className="text-xl font-bold text-text-primary">
+              <h1 
+                className="text-xl font-bold text-text-primary cursor-pointer hover:text-primary-400 transition-colors"
+                onClick={() => navigate('/')}
+              >
                 AIFI 숏츠생성기
               </h1>
               
               <nav className="flex items-center">
-                <Link to="/" className="nav-item">
-                  <Home className="h-4 w-4 mr-2" />
-                  <span>메인</span>
-                </Link>
-                <Link to="/gallery" className="nav-item ml-1">
+                <Link to="/gallery" className="nav-item">
                   <Images className="h-4 w-4 mr-2" />
                   <span>갤러리</span>
                 </Link>
@@ -63,6 +70,15 @@ export const Header: React.FC = () => {
             </div>
 
             <div className="flex items-center gap-2">
+              <button
+                onClick={handleRefresh}
+                className="btn-secondary flex items-center gap-2 text-sm"
+                title="데이터 초기화"
+              >
+                <RefreshCw className="h-4 w-4" />
+                <span>새로고침</span>
+              </button>
+
               <button
                 onClick={() => setIsScriptModalOpen(true)}
                 disabled={!scriptData}
