@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useAppStore } from '../../store/useAppStore';
 import { handleFileUpload, downloadJSON } from '../../utils/fileHandlers';
 import { Upload, Download, Home, Images, FileText } from 'lucide-react';
-import { Button } from '../ui/Button';
+// import { Button } from '../ui/Button'; // Button 컴포넌트 사용 안 함
 import { ScriptModal } from '../ScriptModal';
 
 export const Header: React.FC = () => {

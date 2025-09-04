@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useAppStore } from '../../store/useAppStore';
-import { ChevronDown, ChevronRight, Film, Clock, Hash } from 'lucide-react';
+import { Clock } from 'lucide-react';
 
 export const Sidebar: React.FC = () => {
   const { scriptData, activeSceneIndex, setActiveSceneIndex } = useAppStore();
-  const [expandedSections, setExpandedSections] = useState<string[]>(['scenes']);
+  // const [expandedSections, setExpandedSections] = useState<string[]>(['scenes']);
 
-  const toggleSection = (section: string) => {
-    setExpandedSections(prev =>
-      prev.includes(section)
-        ? prev.filter(s => s !== section)
-        : [...prev, section]
-    );
-  };
+  // const toggleSection = (section: string) => {
+  //   setExpandedSections(prev =>
+  //     prev.includes(section)
+  //       ? prev.filter(s => s !== section)
+  //       : [...prev, section]
+  //   );
+  // };
 
   if (!scriptData) {
     return (
@@ -88,7 +88,7 @@ export const Sidebar: React.FC = () => {
       <div className="p-3 border-t border-dark-border">
         <div className="text-xs text-gray-400">
           <div>총 씬: {scriptData.output.timeline.length}개</div>
-          <div>총 길이: {scriptData.output.total_duration || 'N/A'}</div>
+          {/* <div>총 길이: {scriptData.output.total_duration || 'N/A'}</div> */}
         </div>
       </div>
     </aside>
