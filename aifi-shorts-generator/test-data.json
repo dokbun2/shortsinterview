@@ -1,0 +1,81 @@
+{
+  "script_id": "gen_script_v4_sloth_001",
+  "request_parameters": {
+    "dialect": "충청도 사투리",
+    "subject": "나무늘보",
+    "core_conflict": "그냥 천천히 살았을 뿐인데 게으르다고 놀림 받고, 숲마저 파괴당해 죽어가는 억울함"
+  },
+  "output": {
+    "title": "허어… 나 나무늘보여… 담 생엔 치타로 보자잉.",
+    "character_setting": "숲을 잃고 죽음을 맞이하는, 느긋하지만 억울한 나무늘보",
+    "logline": "느릿느릿 살다 죽음을 앞둔 나무늘보가, 인간의 오해와 파괴에 대한 원망을 토로하며 다음 생을 기약하는 마지막 인터뷰.",
+    "production_note": "자연 다큐멘터리 톤과 블랙코미디 감성을 섞어 연출하세요. 화면은 따뜻한 햇살이 스며드는 열대 우림 분위기로 시작하지만 점차 황폐해진 숲으로 전환됩니다. 배경음악은 느린 현악기와 바람소리를 활용하세요.",
+    "timeline": [
+      {
+        "timestamp": "00:00 - 00:05",
+        "scene_description": "나무에 매달린 나무늘보, 힘없이 눈을 감았다 뜨며 마지막을 준비한다.",
+        "dialogue": "허어… 나 나무늘보여… 나 이제 갈라.",
+        "image_prompts": {
+          "midjourney": "hyperrealistic close-up of a sloth hanging weakly from a tree, tired eyes, golden sunlight filtering through rainforest leaves, melancholic atmosphere --ar 9:16 --v 6.0 --style raw",
+          "narobanana": "나무에 매달린 힘없는 나무늘보. 처량하지만 따뜻한 햇살이 스며드는 열대 우림 분위기."
+        },
+        "video_prompts": {
+          "kling": "A cinematic 1080p video. A sloth clings weakly to a tree branch, its eyes half-closed. The sunlight filters through leaves, slow zoom in.",
+          "veo3": "4K cinematic shot of a sloth barely holding onto a tree. The camera slowly pushes in, warm sunlight glows in the background, melancholic mood."
+        }
+      },
+      {
+        "timestamp": "00:05 - 00:10",
+        "scene_description": "숲 속 풍경과 동물원 우리, 벌목 장면이 빠르게 교차된다.",
+        "dialogue": "인간 것들이 말여, 느리다고 구박허고… 동물원에 가두더니… 숲마저 베어불었구먼.",
+        "image_prompts": {
+          "midjourney": "montage: lush rainforest fading into logging site, a sloth in a zoo cage, contrast between freedom and captivity, dramatic lighting --ar 9:16 --v 6.0",
+          "narobanana": "무성한 숲과 황폐한 벌목지, 동물원 철창 속 나무늘보가 교차되는 씁쓸한 장면."
+        },
+        "video_prompts": {
+          "kling": "Fast-cut montage. Lush rainforest → chainsaws cutting trees → a sloth behind bars in a zoo. Quick, jarring cuts.",
+          "veo3": "Cinematic montage. Wide rainforest shots dissolve into logging machines. A sloth behind glass in a zoo, reflections of children pointing. Dark, dramatic score."
+        }
+      },
+      {
+        "timestamp": "00:10 - 00:15",
+        "scene_description": "나무늘보가 힘겹게 손을 들어 보여준다. 손톱이 부러지고, 몸이 야위어 있다.",
+        "dialogue": "내가 뭐 많이 달라고 했냐… 나 나뭇잎만 씹었지, 인간 밥상은 안 건드렸당께.",
+        "image_prompts": {
+          "midjourney": "close-up of a sloth's weak, bony hand with broken claw, holding onto a thin branch, tragic yet innocent look --ar 9:16 --style raw --v 6.0",
+          "narobanana": "마른 손톱이 부러진 채 나뭇가지를 붙잡은 나무늘보. 배고픔에 지친 모습."
+        },
+        "video_prompts": {
+          "kling": "Close-up of a sloth's frail hand clutching a branch. Its claw is broken. The camera lingers, evoking sympathy.",
+          "veo3": "4K macro shot of the sloth's hand. The camera tilts up to its sad, hungry face. Slow, emotional pacing."
+        }
+      },
+      {
+        "timestamp": "00:15 - 00:20",
+        "scene_description": "카메라를 바라보며 허허 웃는 듯, 철학적인 표정을 짓는다.",
+        "dialogue": "근디 말여… 게으르다구 욕허던 인간들이, 사실은 나한테 제일 관심 많았던 거 아녀?",
+        "image_prompts": {
+          "midjourney": "sloth looking directly into the camera with a wise, almost humorous expression, soft lighting, mix of tragedy and comedy --ar 9:16 --v 6.0",
+          "narobanana": "정면을 응시하며 느릿하게 웃는 나무늘보. 철학적인 표정과 위트가 동시에 담긴 얼굴."
+        },
+        "video_prompts": {
+          "kling": "The sloth slowly turns its head toward the camera, faint smile, deep eyes. The moment holds, mixing humor and sorrow.",
+          "veo3": "Cinematic extreme close-up. The sloth looks at the lens as if breaking the fourth wall. Lighting softens, mood philosophical yet comic."
+        }
+      },
+      {
+        "timestamp": "00:20 - 00:25",
+        "scene_description": "나무늘보의 얼굴에 평온한 미소가 번지고, 화면이 치타가 달리는 실루엣으로 겹친다.",
+        "dialogue": "허어… 담 생에는 치타로 태어나서, 니들보다 먼저 달려가 있을 테니께… 그때 또 보자잉.",
+        "image_prompts": {
+          "midjourney": "final shot of a sloth smiling peacefully, dissolving into the silhouette of a cheetah running across the savanna, symbolic rebirth, hopeful atmosphere --ar 9:16 --v 6.0",
+          "narobanana": "마지막으로 미소 짓는 나무늘보의 얼굴. 화면이 겹쳐지며 치타의 달리는 실루엣으로 전환되는 장면."
+        },
+        "video_prompts": {
+          "kling": "Magical realism video. A sloth's face slowly dissolves into a cheetah sprinting in the distance. Symbolic rebirth.",
+          "veo3": "Cinematic ending. Crossfade from the sloth’s smile to a cheetah running in slow motion across a savanna at sunset. 4K, hopeful and powerful."
+        }
+      }
+    ]
+  }
+}

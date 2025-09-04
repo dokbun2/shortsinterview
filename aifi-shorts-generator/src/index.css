@@ -1,0 +1,168 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark theme colors */
+    --color-dark-bg: 26, 26, 26; /* #1a1a1a */
+    --color-dark-card: 42, 42, 42; /* #2a2a2a */
+    --color-dark-border: 58, 58, 58; /* #3a3a3a */
+    --color-dark-hover: 64, 64, 64; /* #404040 */
+    
+    /* Accent colors */
+    --color-accent-blue: 74, 158, 255; /* #4a9eff */
+    --color-accent-red: 255, 74, 74; /* #ff4a4a */
+    --color-accent-yellow: 255, 169, 74; /* #ffa94a */
+    --color-accent-green: 74, 255, 158; /* #4aff9e */
+    
+    /* Text colors */
+    --color-text-primary: 255, 255, 255; /* #ffffff */
+    --color-text-secondary: 160, 160, 160; /* #a0a0a0 */
+    --color-text-muted: 112, 112, 112; /* #707070 */
+  }
+  
+  * {
+    @apply border-dark-border;
+  }
+  
+  body {
+    @apply bg-dark-bg text-text-primary font-pretendard;
+    font-feature-settings: "ss01" on;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-bg;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-dark-border rounded;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-dark-hover;
+  }
+}
+
+@layer components {
+  /* Card styles */
+  .card-dark {
+    @apply bg-dark-card border border-dark-border rounded-lg;
+  }
+  
+  .card-dark-hover {
+    @apply hover:bg-dark-hover hover:border-dark-hover transition-all duration-200;
+  }
+  
+  /* Button styles */
+  .btn-primary {
+    @apply bg-accent-blue text-white px-4 py-2 rounded-md font-medium transition-all duration-200 hover:bg-accent-blue/90 active:scale-95;
+  }
+  
+  .btn-danger {
+    @apply bg-accent-red text-white px-4 py-2 rounded-md font-medium transition-all duration-200 hover:bg-accent-red/90 active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply bg-dark-card text-text-secondary border border-dark-border px-4 py-2 rounded-md font-medium transition-all duration-200 hover:bg-dark-hover hover:text-text-primary active:scale-95;
+  }
+  
+  /* Tab styles */
+  .tab-item {
+    @apply px-4 py-2 text-sm font-medium text-text-secondary transition-all duration-200 cursor-pointer;
+  }
+  
+  .tab-item-active {
+    @apply text-accent-blue bg-accent-blue/10 rounded-md;
+  }
+  
+  /* Input styles */
+  .input-dark {
+    @apply bg-dark-card border border-dark-border rounded-md px-3 py-2 text-text-primary placeholder-text-muted focus:outline-none focus:border-accent-blue transition-colors duration-200;
+  }
+  
+  /* Sidebar navigation styles */
+  .nav-item {
+    @apply flex items-center px-3 py-2 rounded-md text-sm font-medium text-text-secondary hover:bg-dark-hover hover:text-text-primary transition-all duration-200;
+  }
+  
+  .nav-item-active {
+    @apply bg-dark-hover text-text-primary;
+  }
+  
+  /* Badge styles */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .badge-blue {
+    @apply bg-accent-blue/20 text-accent-blue;
+  }
+  
+  .badge-red {
+    @apply bg-accent-red/20 text-accent-red;
+  }
+  
+  .badge-yellow {
+    @apply bg-accent-yellow/20 text-accent-yellow;
+  }
+  
+  .badge-green {
+    @apply bg-accent-green/20 text-accent-green;
+  }
+}
+
+@layer utilities {
+  /* Text utilities */
+  .text-gradient-blue {
+    @apply bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-red {
+    @apply bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent;
+  }
+  
+  /* Line clamp utilities */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+  
+  /* Transition utilities */
+  .transition-smooth {
+    @apply transition-all duration-200 ease-in-out;
+  }
+  
+  /* Shadow utilities for dark theme */
+  .shadow-dark-sm {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  }
+  
+  .shadow-dark-md {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  }
+  
+  .shadow-dark-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  }
+}
