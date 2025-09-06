@@ -8,7 +8,7 @@ import { Upload, Download, Images, FileText, RefreshCw } from 'lucide-react';
 import { ScriptModal } from '../ScriptModal';
 
 export const Header: React.FC = () => {
-  const { scriptData, setScriptData, resetStore } = useAppStore();
+  const { scriptData, setScriptData, resetStore, mediaUrls, setMediaUrl } = useAppStore();
   const [isScriptModalOpen, setIsScriptModalOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -17,13 +17,31 @@ export const Header: React.FC = () => {
       try {
         const data = await handleFileUpload(acceptedFiles[0]);
         setScriptData(data);
+        
+        // mediaUrls가 포함되어 있으면 복원
+        if (data.output?.timeline) {
+          data.output.timeline.forEach((scene: any, index: number) => {
+            if (scene.mediaUrls) {
+              if (scene.mediaUrls.imageUrl) {
+                setMediaUrl(index, 'image', scene.mediaUrls.imageUrl);
+              }
+              if (scene.mediaUrls.videoUrl) {
+                setMediaUrl(index, 'video', scene.mediaUrls.videoUrl);
+              }
+              if (scene.mediaUrls.audioUrl) {
+                setMediaUrl(index, 'audio', scene.mediaUrls.audioUrl);
+              }
+            }
+          });
+        }
+        
         alert('파일이 성공적으로 업로드되었습니다!');
       } catch (error) {
         alert('파일 업로드 중 오류가 발생했습니다. JSON 형식을 확인해주세요.');
         console.error(error);
       }
     }
-  }, [setScriptData]);
+  }, [setScriptData, setMediaUrl]);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
@@ -35,7 +53,18 @@ export const Header: React.FC = () => {
 
   const handleDownload = () => {
     if (scriptData) {
-      downloadJSON(scriptData);
+      // 원본 scriptData에 mediaUrls 정보를 추가하여 저장
+      const enhancedData = {
+        ...scriptData,
+        output: {
+          ...scriptData.output,
+          timeline: scriptData.output.timeline.map((scene, index) => ({
+            ...scene,
+            mediaUrls: mediaUrls[index] || {}
+          }))
+        }
+      };
+      downloadJSON(enhancedData);
     } else {
       alert('다운로드할 데이터가 없습니다.');
     }
